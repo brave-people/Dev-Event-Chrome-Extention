@@ -1,6 +1,6 @@
 # Dev-Event-Chrome-Extention
 
-> 현재 해당 레포지토리는 개발 진행중입니다!
+> 현재 해당 레포지토리는 개발 진행중입니다! 
 > 🎉🎈 Dev Event를 크롬 확장앱에서 만나요
 
 ## Design
