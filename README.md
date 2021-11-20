@@ -1,13 +1,14 @@
 # Dev-Event-Chrome-Extention
 
-> 현재 해당 레포지토리는 개발 진행중입니다!
+> 현재 해당 레포지토리는 개발 진행중입니다! 
 > 🎉🎈 Dev Event를 크롬 확장앱에서 만나요
 
 ## Design
 
 <p align="center"><img src="./images/Design.png" width="200px"><img src="./images/Design2.png" width="200px"></p>
 
-- 디자인은 `블랙테마`, `화이트 테마`로 제작 예정입니다. (디자인은 추후 바뀔수도 있습니다. 좋은 디자인이 있으신분들은 알려주시면 감사합니다)
+- 디자인은 `블랙테마`, `화이트 테마`로 제작 예정입니다. 
+- (디자인은 추후 바뀔수도 있습니다)
 
 ## 개발환경
 
