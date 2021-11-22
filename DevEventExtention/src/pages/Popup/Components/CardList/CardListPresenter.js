@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import CardPresenter from './CardPresenter';
+import CardPresenter from '../Card/CardPresenter';
 
 const CardListWrapper = styled.div`
   flex: 1;
