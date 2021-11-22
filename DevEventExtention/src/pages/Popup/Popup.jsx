@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import HeaderPresenter from './Components/HeaderPresenter';
-import ContentsPresenter from './Components/ContetnsPresenter/ContetnsPresenter';
+import Header from './Components/Header';
+import CardList from './Components/CardList';
 
 const Container = styled.div`
   width: 300px;
@@ -19,8 +19,8 @@ const Container = styled.div`
 const Popup = () => {
   return (
     <Container>
-      <HeaderPresenter />
-      <ContentsPresenter />
+      <Header />
+      <CardList />
     </Container>
   );
 };
