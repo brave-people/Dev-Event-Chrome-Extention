@@ -15,6 +15,16 @@ const GlobalStyles = createGlobalStyle`
         font-size: 14px;
         color: white;
     }
+
+    *::-webkit-scrollbar{
+        -webkit-appearance: none;
+    }
+    *::-webkit-scrollbar-thumb{
+       background-color:white; 
+       border-radius: 15px;
+       background-clip:padding-box;
+       border:6px solid transparent;
+    }
 `;
 
 export default GlobalStyles;

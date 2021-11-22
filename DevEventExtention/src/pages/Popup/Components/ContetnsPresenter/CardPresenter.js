@@ -1,7 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
-import styled, {css} from 'styled-components';
-import {darken} from 'polished';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import {lighten} from 'polished';
 import {MdOutlineInsertLink} from 'react-icons/md';
 import {RiStarLine} from 'react-icons/ri';
 
@@ -27,6 +27,8 @@ const CardDate = styled.div`
   color: ${props => props.theme.Colors.btColorGray};
 `;
 const CardLinkButton = styled.button`
+  cursor: pointer;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,11 +40,15 @@ const CardLinkButton = styled.button`
   left: 30px;
   top: 90px;
   width: 4rem;
-
   color: ${props => props.theme.Colors.btColorGray};
   background-color: ${props => props.theme.Colors.btColorBlue};
+  &:hover {
+    background-color: ${props => lighten(0.1, props.theme.Colors.btColorBlue)};
+    color: ${props => lighten(0.1, props.theme.Colors.btColorGray)};
+  }
 `;
 const CardDevTypeIcon = styled.div`
+  pointer-events: none;
   position: absolute;
   width: 50px;
   height: 50px;
@@ -53,57 +59,40 @@ const CardDevTypeIcon = styled.div`
   top: 50px;
 
   border-radius: 100%;
-  ${props => {
-    const selectedColor = props.theme.Colors[props.color];
-    return css`
-      background-color: ${selectedColor};
-      &:hover {
-        background: ${darken(0.1, selectedColor)};
-      }
-    `;
-  }}
+  background-color: ${props => props.theme.Colors[props.color]};
 `;
-const CardPoint = styled.div`
+const CardPointColor = styled.div`
+  pointer-events: none;
   height: 100%;
   width: 10px;
   border: 0;
   border-radius: 10px 0 0 10px;
-  ${props => {
-    const selectedColor = props.theme.Colors[props.color];
-    return css`
-      background-color: ${selectedColor};
-      &:hover {
-        background: ${darken(0.1, selectedColor)};
-      }
-    `;
-  }}
+  background-color: ${props => props.theme.Colors[props.color]};
 `;
 const CardLinkIcon = styled(MdOutlineInsertLink)`
   font-size: 1rem;
   color: ${props => props.theme.Colors.btColorGray};
 `;
 const CardFollowIcon = styled(RiStarLine)`
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 240px;
+  cursor: pointer;
 
+  position: absolute;
+  left: 240px;
   top: 95px;
-  ${props => {
-    const selectedColor = props.theme.Colors.btColorGray;
-    return css`
-      color: ${selectedColor};
-      &:hover {
-        color: ${darken(0.1, selectedColor)};
-      }
-    `;
-  }}
+  transform: translate(-50%, -50%);
+
+  font-size: 1rem;
+  &:hover {
+    cursor: pointer;
+    color: ${props => lighten(0.1, props.theme.Colors.btColorYellow)};
+  }
 `;
 
-function CardPresenter(props) {
+function CardPresenter({color}) {
   return (
     <>
       <CardWraper>
-        <CardPoint />
+        <CardPointColor color={color} />
         <CardTitle> If Kakao </CardTitle>
         <CardDate>11:16(화) ~ 11:18(목)</CardDate>
         <CardLinkButton>
@@ -111,10 +100,13 @@ function CardPresenter(props) {
           &nbsp; Link
         </CardLinkButton>
         <CardFollowIcon />
-        <CardDevTypeIcon />
+        <CardDevTypeIcon color={color} />
       </CardWraper>
     </>
   );
 }
+CardPresenter.propTypes = {
+  color: PropTypes.string.isRequired,
+};
 
 export default CardPresenter;

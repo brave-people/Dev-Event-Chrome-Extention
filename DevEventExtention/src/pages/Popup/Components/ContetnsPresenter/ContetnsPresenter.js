@@ -11,10 +11,18 @@ function ContentsPresenter() {
   return (
     <>
       <ContentsWrapper>
-        <CardPresenter />
-        <CardPresenter />
-        <CardPresenter />
-        <CardPresenter />
+        <CardPresenter color="icColorRed" />
+        <CardPresenter color="icColorOrange" />
+        <CardPresenter color="icColorBlue" />
+        <CardPresenter color="icColorPink" />
+        <CardPresenter color="icColorRed" />
+        <CardPresenter color="icColorOrange" />
+        <CardPresenter color="icColorBlue" />
+        <CardPresenter color="icColorPink" />
+        <CardPresenter color="icColorRed" />
+        <CardPresenter color="icColorOrange" />
+        <CardPresenter color="icColorBlue" />
+        <CardPresenter color="icColorPink" />
       </ContentsWrapper>
     </>
   );

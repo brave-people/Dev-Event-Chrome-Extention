@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import HeaderPresenter from './Components/HeaderPresenter';
 import ContentsPresenter from './Components/ContetnsPresenter/ContetnsPresenter';
@@ -9,18 +9,18 @@ const Container = styled.div`
   margin: 0;
   padding: 0;
 
-  //background-color: ${props => props.theme.Colors.bgColorBlack};
+  background-color: ${props => props.theme.Colors.bgColorBlack};
   display: flex;
   flex-flow: column;
   flex-wrap: wrap;
   overflow: auto;
 `;
 
-const Popup = props => {
+const Popup = () => {
   return (
     <Container>
       <HeaderPresenter />
-      {/* <ContentsPresenter /> */}
+      <ContentsPresenter />
     </Container>
   );
 };
