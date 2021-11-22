@@ -1,30 +1,27 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components';
-import GlobalStyles from './styles/GlobalStyles';
-import ContentsPresenter from './Components/ContetnsPresenter/ContetnsPresenter';
 import HeaderPresenter from './Components/HeaderPresenter';
+import ContentsPresenter from './Components/ContetnsPresenter/ContetnsPresenter';
 
 const Container = styled.div`
   width: 300px;
   height: 500px;
   margin: 0;
   padding: 0;
-  background-color: #282a36;
+
+  //background-color: ${props => props.theme.Colors.bgColorBlack};
   display: flex;
   flex-flow: column;
   flex-wrap: wrap;
   overflow: auto;
 `;
 
-const Popup = () => {
+const Popup = props => {
   return (
-    <>
-      <GlobalStyles />
-      <Container>
-        <HeaderPresenter />
-        <ContentsPresenter />
-      </Container>
-    </>
+    <Container>
+      <HeaderPresenter />
+      {/* <ContentsPresenter /> */}
+    </Container>
   );
 };
 

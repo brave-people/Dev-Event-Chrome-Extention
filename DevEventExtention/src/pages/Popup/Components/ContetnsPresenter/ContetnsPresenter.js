@@ -1,29 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import CardPresenter from './CardPresenter';
 
-const ContentsPresenter = styled.div`
+const ContentsWrapper = styled.div`
   flex: 1;
   overflow: auto;
 `;
 
-const CardWraper = styled.div`
-  width: 100%;
-  height: 30%;
-  border: 1px solid white;
-`;
-
-function CardPresenter() {
+function ContentsPresenter() {
   return (
     <>
-      <ContentsPresenter>
-        <CardWraper />
-        <CardWraper />
-        <CardWraper />
-        <CardWraper />
-        <CardWraper />
-      </ContentsPresenter>
+      <ContentsWrapper>
+        <CardPresenter />
+        <CardPresenter />
+        <CardPresenter />
+        <CardPresenter />
+      </ContentsWrapper>
     </>
   );
 }
 
-export default CardPresenter;
+export default ContentsPresenter;

@@ -1,20 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
-import {RiCloseCircleLine} from 'react-icons/ri';
+import {RiCloseLine} from 'react-icons/ri';
 
 const HeaderWraper = styled.div`
   width: 100%;
   height: 10%;
-  border: 1px solid white;
-  color: #f8f8f2;
+  color: ${props => props.theme.Colors.bgColorGray};
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const Title = styled.div`
-  width: 80%;
-  text-align: center;
+  width: 60%;
+  text-align: left;
   font-size: 1rem;
   font-weight: bold;
 `;
@@ -25,8 +24,8 @@ const CloseButton = styled.button`
   background-color: transparent;
 `;
 
-const CloseIcon = styled(RiCloseCircleLine)`
-  color: #f8f8f2;
+const CloseIcon = styled(RiCloseLine)`
+  color: ${props => props.theme.Colors.bgColorGray};
   font-size: 1.5rem;
 `;
 
