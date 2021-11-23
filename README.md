@@ -23,7 +23,7 @@
 
 - [x] Extension Boilerplate
 - [x] UI제작
-- [ ] Jssoup를 통한 Dev-Event 크롤링
+- [x] Jssoup를 통한 Dev-Event 크롤링
 - [ ] Dev-Event Render, 즐겨찾기 기능 추가
 - [ ] Chrome Storage.sync를 통해 사용자 동기화
 
