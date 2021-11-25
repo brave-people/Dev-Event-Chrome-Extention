@@ -60,7 +60,7 @@ function HeaderPresenter({NowMonth}) {
 }
 
 HeaderPresenter.propTypes = {
-  NowMonth: PropTypes.string.isRequired,
+  NowMonth: PropTypes.number.isRequired,
 };
 
 export default HeaderPresenter;

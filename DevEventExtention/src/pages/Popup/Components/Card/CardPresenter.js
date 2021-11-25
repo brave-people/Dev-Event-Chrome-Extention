@@ -17,6 +17,9 @@ const CardTitle = styled.div`
   position: absolute;
   left: 30px;
   top: 30px;
+  width: 200px;
+  height: 1rem;
+  overflow: hidden;
 
   font-weight: bold;
   font-size: 1rem;
@@ -94,28 +97,35 @@ const CardFollowIcon = styled(RiStarLine)`
   }
 `;
 
-function CardPresenter({DevTitle, DevDate, DevEventType, color}) {
+function CardPresenter({
+  key,
+  DevEventTitle,
+  DevEventDate,
+  DevEventType,
+  DevEventUrl,
+}) {
   return (
     <>
-      <CardWraper>
-        <CardPointColor color={color} />
-        <CardTitle> {DevTitle} </CardTitle>
-        <CardDate>{DevDate}</CardDate>
-        <CardLinkButton>
+      <CardWraper key={key}>
+        <CardPointColor color={'icColorRed'} />
+        <CardTitle> {DevEventTitle} </CardTitle>
+        <CardDate>{DevEventDate}</CardDate>
+        <CardLinkButton onClick={() => window.open(DevEventUrl)}>
           <CardLinkIcon />
           &nbsp; Link
         </CardLinkButton>
         <CardFollowIcon />
-        <CardDevTypeIcon color={color} />
+        {/* <CardDevTypeIcon color={'icColorRed'} /> */}
       </CardWraper>
     </>
   );
 }
 CardPresenter.propTypes = {
-  DevTitle: PropTypes.string.isRequired,
-  DevDate: PropTypes.string.isRequired,
+  key: PropTypes.string.isRequired,
+  DevEventTitle: PropTypes.string.isRequired,
+  DevEventDate: PropTypes.string.isRequired,
   DevEventType: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  DevEventUrl: PropTypes.string.isRequired,
 };
 
 export default CardPresenter;
