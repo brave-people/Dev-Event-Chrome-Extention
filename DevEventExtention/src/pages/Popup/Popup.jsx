@@ -4,7 +4,7 @@ import Header from './Components/Header';
 import CardList from './Components/CardList';
 
 const Container = styled.div`
-  width: 300px;
+  width: 320px;
   height: 500px;
   margin: 0;
   padding: 0;

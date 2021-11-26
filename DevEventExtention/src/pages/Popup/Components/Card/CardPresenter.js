@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import {lighten} from 'polished';
 import {MdOutlineInsertLink} from 'react-icons/md';
 import {RiStarLine} from 'react-icons/ri';
+import MarqueePresenter from '../Marquee/MarqueePresenter';
 
 const CardWraper = styled.div`
   display: flex;
@@ -13,25 +14,16 @@ const CardWraper = styled.div`
   width: 100%;
   height: 30%;
 `;
-const CardTitle = styled.div`
+const CardTitle = styled(MarqueePresenter)`
   position: absolute;
   left: 30px;
   top: 30px;
-  width: 200px;
-  height: 1rem;
-  overflow: hidden;
-
-  font-weight: bold;
-  font-size: 1rem;
-  color: ${props => props.theme.Colors.btColorGray};
 `;
-const CardDate = styled.div`
+
+const CardDate = styled(MarqueePresenter)`
   position: absolute;
   left: 30px;
   top: 55px;
-
-  font-size: 1rem;
-  color: ${props => props.theme.Colors.btColorGray};
 `;
 const CardLinkButton = styled.button`
   display: flex;
@@ -57,8 +49,8 @@ const CardLinkButton = styled.button`
 const CardDevTypeIcon = styled.div`
   pointer-events: none;
   position: absolute;
-  left: 240px;
-  top: 50px;
+  left: 270px;
+  top: 45px;
 
   width: 50px;
   height: 50px;
@@ -70,7 +62,6 @@ const CardDevTypeIcon = styled.div`
 `;
 const CardPointColor = styled.div`
   pointer-events: none;
-
   height: 100%;
   width: 10px;
 
@@ -86,7 +77,7 @@ const CardFollowIcon = styled(RiStarLine)`
   cursor: pointer;
 
   position: absolute;
-  left: 240px;
+  left: 270px;
   top: 95px;
   transform: translate(-50%, -50%);
 
@@ -107,15 +98,16 @@ function CardPresenter({
   return (
     <>
       <CardWraper key={key}>
-        <CardPointColor color={'icColorRed'} />
-        <CardTitle> {DevEventTitle} </CardTitle>
-        <CardDate>{DevEventDate}</CardDate>
+        <CardPointColor color={key} />
+        <CardTitle Contents={DevEventTitle} />
+        {/* <MarqueePresenter /> */}
+        <CardDate Contents={DevEventDate}></CardDate>
         <CardLinkButton onClick={() => window.open(DevEventUrl)}>
           <CardLinkIcon />
           &nbsp; Link
         </CardLinkButton>
         <CardFollowIcon />
-        {/* <CardDevTypeIcon color={'icColorRed'} /> */}
+        <CardDevTypeIcon color={key} />
       </CardWraper>
     </>
   );
