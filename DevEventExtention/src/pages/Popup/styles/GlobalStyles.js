@@ -25,6 +25,9 @@ const GlobalStyles = createGlobalStyle`
        background-clip:padding-box;
        border:6px solid transparent;
     }
+    div{
+        user-select: none;
+    }
 `;
 
 export default GlobalStyles;

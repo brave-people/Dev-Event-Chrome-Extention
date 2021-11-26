@@ -5,8 +5,6 @@ import {lighten} from 'polished';
 import {RiCloseLine} from 'react-icons/ri';
 
 const HeaderWrapper = styled.div`
-  pointer-events: none;
-
   width: 100%;
   height: 10%;
   color: ${props => props.theme.Colors.btColorGray};
@@ -18,7 +16,6 @@ const HeaderWrapper = styled.div`
 
 const HeaderTitle = styled.div`
   width: 60%;
-
   text-align: center;
   font-size: 1rem;
   font-weight: bold;
@@ -31,9 +28,13 @@ const HeaderCloseButton = styled.button`
   outline: 0;
   background-color: transparent;
 
+  position: relative;
+  z-index: 3;
+
   text-align: center;
 
   flex-grow: 1;
+  z-index: 100;
 `;
 
 const HeaderCloseIcon = styled(RiCloseLine)`
@@ -51,7 +52,11 @@ function HeaderPresenter({NowMonth}) {
     <>
       <HeaderWrapper>
         <HeaderTitle>{NowMonth} Dev-Event Schedule</HeaderTitle>
-        <HeaderCloseButton>
+        <HeaderCloseButton
+          onClick={() => {
+            window.close();
+          }}
+        >
           <HeaderCloseIcon />
         </HeaderCloseButton>
       </HeaderWrapper>

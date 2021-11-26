@@ -7,12 +7,43 @@ import {MdOutlineInsertLink} from 'react-icons/md';
 import {RiStarLine} from 'react-icons/ri';
 import MarqueePresenter from '../Marquee/MarqueePresenter';
 
+const CardDevTypeIcon = styled.div`
+  position: absolute;
+  left: 270px;
+  top: 45px;
+
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+
+  border: 0;
+  border-radius: 100%;
+`;
+const CardPointColor = styled.div`
+  height: 100%;
+  width: 10px;
+
+  border: 0;
+  border-radius: 10px 0 0 10px;
+`;
 const CardWraper = styled.div`
   display: flex;
   position: relative;
 
   width: 100%;
   height: 30%;
+  &:nth-child(4n + 1) ${CardPointColor},&:nth-child(4n + 1) ${CardDevTypeIcon} {
+    background-color: #c8372d;
+  }
+  &:nth-child(4n + 2) ${CardPointColor},&:nth-child(4n + 2) ${CardDevTypeIcon} {
+    background-color: #d1941a;
+  }
+  &:nth-child(4n + 3) ${CardPointColor},&:nth-child(4n + 3) ${CardDevTypeIcon} {
+    background-color: #76a9ff;
+  }
+  &:nth-child(4n + 4) ${CardPointColor},&:nth-child(4n + 4) ${CardDevTypeIcon} {
+    background-color: #f178b6;
+  }
 `;
 const CardTitle = styled(MarqueePresenter)`
   position: absolute;
@@ -39,6 +70,8 @@ const CardLinkButton = styled.button`
   align-items: center;
   border-radius: 15px;
 
+  /* z-index:1; */
+
   color: ${props => props.theme.Colors.btColorGray};
   background-color: ${props => props.theme.Colors.btColorBlue};
   &:hover {
@@ -46,29 +79,7 @@ const CardLinkButton = styled.button`
     color: ${props => lighten(0.1, props.theme.Colors.btColorGray)};
   }
 `;
-const CardDevTypeIcon = styled.div`
-  pointer-events: none;
-  position: absolute;
-  left: 270px;
-  top: 45px;
 
-  width: 50px;
-  height: 50px;
-  transform: translate(-50%, -50%);
-
-  border: 0;
-  border-radius: 100%;
-  background-color: ${props => props.theme.Colors[props.color]};
-`;
-const CardPointColor = styled.div`
-  pointer-events: none;
-  height: 100%;
-  width: 10px;
-
-  border: 0;
-  border-radius: 10px 0 0 10px;
-  background-color: ${props => props.theme.Colors[props.color]};
-`;
 const CardLinkIcon = styled(MdOutlineInsertLink)`
   font-size: 1rem;
   color: ${props => props.theme.Colors.btColorGray};
@@ -89,7 +100,6 @@ const CardFollowIcon = styled(RiStarLine)`
 `;
 
 function CardPresenter({
-  key,
   DevEventTitle,
   DevEventDate,
   DevEventType,
@@ -97,23 +107,21 @@ function CardPresenter({
 }) {
   return (
     <>
-      <CardWraper key={key}>
-        <CardPointColor color={key} />
+      <CardWraper>
+        <CardPointColor />
         <CardTitle Contents={DevEventTitle} />
-        {/* <MarqueePresenter /> */}
-        <CardDate Contents={DevEventDate}></CardDate>
+        <CardDate Contents={DevEventDate} />
         <CardLinkButton onClick={() => window.open(DevEventUrl)}>
           <CardLinkIcon />
           &nbsp; Link
         </CardLinkButton>
         <CardFollowIcon />
-        <CardDevTypeIcon color={key} />
+        <CardDevTypeIcon />
       </CardWraper>
     </>
   );
 }
 CardPresenter.propTypes = {
-  key: PropTypes.string.isRequired,
   DevEventTitle: PropTypes.string.isRequired,
   DevEventDate: PropTypes.string.isRequired,
   DevEventType: PropTypes.string.isRequired,

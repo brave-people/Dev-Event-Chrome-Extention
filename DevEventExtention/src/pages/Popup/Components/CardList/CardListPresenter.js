@@ -15,7 +15,9 @@ function CardListPresenter({DevEvents}) {
       <CardListWrapper>
         {DevEvents.map((DevEvent, index) => {
           if (index !== 0)
-            return <CardContainer key={index} DevEvent={DevEvent} />;
+            return (
+              <CardContainer key={index} KeyIndex={index} DevEvent={DevEvent} />
+            );
         })}
       </CardListWrapper>
     </>

@@ -9,6 +9,7 @@ const MoveEvent = keyframes`
 `;
 
 const Marquee = styled.div`
+  user-select: text;
   width: 200px;
   height: 1rem;
   overflow: hidden;
@@ -28,7 +29,7 @@ const MarqueeContents = styled.p`
       return css`
         &:hover {
           padding-left: 200px;
-          animation: ${MoveEvent} linear 3s infinite;
+          animation: ${MoveEvent} linear 4s infinite;
         }
       `;
     return {};
@@ -38,7 +39,7 @@ const MarqueeContents = styled.p`
 function MarqueePresenter({Contents, className}) {
   const [moveState, setmoveState] = useState(false);
   useEffect(() => {
-    if (Contents.length > 23) {
+    if (Contents.length > 19) {
       setmoveState(true);
     }
   }, []);

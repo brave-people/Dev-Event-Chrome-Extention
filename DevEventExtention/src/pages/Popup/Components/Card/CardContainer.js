@@ -2,7 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import CardPresenter from './CardPresenter';
 
-function CardContainer({index, DevEvent}) {
+function CardContainer({keyIndex, DevEvent}) {
   const [state, setstate] = useState({
     key: 0,
     DevEventTitle: '',
@@ -12,7 +12,7 @@ function CardContainer({index, DevEvent}) {
   const {key, DevEventTitle, DevEventDate, DevEventUrl} = state;
   useEffect(() => {
     setstate({
-      key: index,
+      key: keyIndex,
       DevEventTitle: DevEvent.title || '없음',
       DevEventDate: DevEvent.일시 || DevEvent.모집 || DevEvent.신청 || '없음',
       DevEventUrl: DevEvent.url || '없음',
