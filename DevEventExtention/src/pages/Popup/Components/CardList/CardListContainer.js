@@ -8,16 +8,21 @@ function CardListContainer() {
   const [DevEvents, setDevEvents] = useState([{}]);
   useEffect(() => {
     const localCrwallData = JSON.parse(localStorage.getItem('CrwallData'));
-    if (localCrwallData !== null) {
-      console.log('=====not Crawll========');
-      console.log(localCrwallData);
-      setDevEvents(localCrwallData);
-    } else {
+    console.log(localCrwallData);
+    const today = new Date();
+    if (
+      localCrwallData === null ||
+      localCrwallData.WriteDate !== today.toLocaleDateString()
+    ) {
       Crawll(url).then(e => {
         console.log('=====Crawll========');
-        console.log(localCrwallData);
+        console.log(e);
         setDevEvents(e);
       });
+    } else {
+      console.log('=====not Crawll========');
+      console.log(localCrwallData.Contents);
+      setDevEvents(localCrwallData.Contents);
     }
   }, []);
   return (

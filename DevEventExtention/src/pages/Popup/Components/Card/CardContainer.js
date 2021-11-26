@@ -14,7 +14,12 @@ function CardContainer({keyIndex, DevEvent}) {
     setstate({
       key: keyIndex,
       DevEventTitle: DevEvent.title || '없음',
-      DevEventDate: DevEvent.일시 || DevEvent.모집 || DevEvent.신청 || '없음',
+      DevEventDate:
+        DevEvent.일시 ||
+        DevEvent.모집 ||
+        DevEvent.신청 ||
+        DevEvent.접수 ||
+        '없음',
       DevEventUrl: DevEvent.url || '없음',
     });
   }, []);

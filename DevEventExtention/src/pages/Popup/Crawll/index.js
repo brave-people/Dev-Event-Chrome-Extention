@@ -31,7 +31,12 @@ const Crawll = async url => {
         }
       });
     });
-    localStorage.setItem('CrwallData', JSON.stringify(DevEventsArray));
+    const today = new Date();
+    const localDevEventData = {
+      WriteDate: today.toLocaleDateString(),
+      Contents: DevEventsArray,
+    };
+    localStorage.setItem('CrwallData', JSON.stringify(localDevEventData));
     return DevEventsArray;
   } catch (err) {
     console.error(err);
