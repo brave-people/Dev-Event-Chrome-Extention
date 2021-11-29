@@ -27,5 +27,7 @@
 - [x] Dev-Event Render
 - [x] UI 수정
 - [ ] 즐겨찾기,Chrome Storage.sync를 통해 사용자 동기화
+- [ ] DevEvent 검색
+- [ ] option 창 제작
 
 - [ ] NewTab을 눌렀을때 DevEventSite로 이동(?)
