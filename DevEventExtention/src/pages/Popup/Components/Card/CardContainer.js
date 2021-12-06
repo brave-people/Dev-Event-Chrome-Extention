@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, {useState, useEffect} from 'react';
+// import {MdChromeReaderMode} from 'react-icons/md';
 import CardPresenter from './CardPresenter';
 
 function CardContainer({keyIndex, DevEvent}) {
@@ -8,21 +9,39 @@ function CardContainer({keyIndex, DevEvent}) {
     DevEventTitle: '',
     DevEventDate: '',
     DevEventUrl: '',
+    DevEventDateSimple: '',
+    DevEventType: [],
   });
-  const {key, DevEventTitle, DevEventDate, DevEventUrl} = state;
+  const [devFollow, setdevFollow] = useState(false);
+  const {key, DevEventTitle, DevEventDate, DevEventUrl, DevEventType} = state;
   useEffect(() => {
     setstate({
       key: keyIndex,
       DevEventTitle: DevEvent.title || '없음',
-      DevEventDate:
-        DevEvent.일시 ||
-        DevEvent.모집 ||
-        DevEvent.신청 ||
-        DevEvent.접수 ||
-        '없음',
+      DevEventDateSimple: DevEvent.DevEventDateSimple || '없음',
+      DevEventDate: DevEvent.DevEventDate || '없음',
       DevEventUrl: DevEvent.url || '없음',
+      DevEventType: DevEvent.분류 || '없음',
     });
   }, []);
+  const followBtnEvent = () => {
+    if (devFollow === false) {
+      setdevFollow(true);
+      const opt = {
+        type: 'list',
+        title: 'keep burning',
+        message: 'Primary message to display',
+      };
+      debugger;
+      chrome.notifications.create('1', opt, function () {
+        console.log('sad');
+      });
+      // chrome.browserAction.setBadgeText({text: 'ON'});
+    } else {
+      setdevFollow(false);
+      chrome.alarms.create();
+    }
+  };
 
   return (
     <CardPresenter
@@ -30,7 +49,8 @@ function CardContainer({keyIndex, DevEvent}) {
       DevEventTitle={DevEventTitle}
       DevEventDate={DevEventDate}
       DevEventUrl={DevEventUrl}
-      DevEventType={'컨퍼런스'}
+      DevEventType={DevEventType}
+      DevFllowButtonEvent={followBtnEvent}
     />
   );
 }

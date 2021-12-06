@@ -1,8 +1,12 @@
 {
   "manifest_version": 3,
+
+  "permissions": [
+    "notifications", "tabs", "activeTab", "background"
+  ],
   "name": "Dev-Event-Extends",
   "options_page": "options.html",
-  "background": { "service_worker": "background.bundle.js" },
+  "background": { "service_worker": "background.bundle.js","persistent": false },
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon-34.png"

@@ -25,10 +25,10 @@ const Crawll = async url => {
           item.findAll('li').forEach(element => {
             let DevEventType = element.text.split(': ')[0];
             if (
-              DevEventType == '일시' ||
-              DevEventType == '모집' ||
-              DevEventType == '신청' ||
-              DevEventType == '접수'
+              DevEventType === '일시' ||
+              DevEventType === '모집' ||
+              DevEventType === '신청' ||
+              DevEventType === '접수'
             ) {
               DevEventType = 'DevEventDate';
             }
@@ -40,11 +40,14 @@ const Crawll = async url => {
       });
     });
 
-    const dateSimple = [];
+    // const dateSimple = [];
+
     DevEventsArray.forEach(DevEvent => {
       // 날짜 시작과 끝(월 일만)
       const temp = DevEvent.DevEventDate.replace(/(\s*)/g, '');
-      dateSimple.push(temp.match(/[0-9]+\.[0-9]+/g).join(','));
+      DevEvent.DevEventDateSimple = temp.match(/[0-9]+\.[0-9]+/g).join('~');
+      if (!DevEvent.DevEventDate.includes('~'))
+        DevEvent.DevEventDateSimple = `${DevEvent.DevEventDate}~${DevEvent.DevEventDate}`;
 
       // 분류 배열화
       const DevEventTypeArray = [];
@@ -58,10 +61,10 @@ const Crawll = async url => {
     const localDevEventData = {
       WriteDate: today.toLocaleDateString(),
       Contents: DevEventsArray,
-      DataSimple: dateSimple,
+      // DataSimple: dateSimple,
     };
     localStorage.setItem('CrwallData', JSON.stringify(localDevEventData));
-    return DevEventsArray;
+    return localDevEventData;
   } catch (err) {
     console.error(err);
     return err;

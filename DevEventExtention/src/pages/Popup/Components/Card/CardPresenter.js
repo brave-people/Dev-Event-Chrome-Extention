@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {lighten} from 'polished';
 import {MdOutlineInsertLink} from 'react-icons/md';
-import {RiStarLine} from 'react-icons/ri';
+import {BsFillBookmarkHeartFill} from 'react-icons/bs';
 import MarqueePresenter from '../Marquee/MarqueePresenter';
 
 const CardDevTypeIcon = styled.div`
@@ -84,18 +84,24 @@ const CardLinkIcon = styled(MdOutlineInsertLink)`
   font-size: 1rem;
   color: ${props => props.theme.Colors.btColorGray};
 `;
-const CardFollowIcon = styled(RiStarLine)`
-  cursor: pointer;
+
+const CardFollowButton = styled.button`
+  border: 0;
+  outline: 0;
+  background-color: transparent;
 
   position: absolute;
   left: 270px;
   top: 95px;
   transform: translate(-50%, -50%);
-
-  font-size: 1rem;
+`;
+const CardFollowIcon = styled(BsFillBookmarkHeartFill)`
+  cursor: pointer;
+  color: ${props => lighten(0.1, props.theme.Colors.btColorGray)};
+  font-size: 1.5rem;
   &:hover {
     cursor: pointer;
-    color: ${props => lighten(0.1, props.theme.Colors.btColorYellow)};
+    color: ${props => lighten(0.1, props.theme.Colors.btColorBlue)};
   }
 `;
 
@@ -104,6 +110,8 @@ function CardPresenter({
   DevEventDate,
   DevEventType,
   DevEventUrl,
+  // eslint-disable-next-line react/prop-types
+  DevFllowButtonEvent,
 }) {
   return (
     <>
@@ -115,7 +123,9 @@ function CardPresenter({
           <CardLinkIcon />
           &nbsp; Link
         </CardLinkButton>
-        <CardFollowIcon />
+        <CardFollowButton onClick={DevFllowButtonEvent}>
+          <CardFollowIcon />
+        </CardFollowButton>
         <CardDevTypeIcon />
       </CardWraper>
     </>
@@ -124,7 +134,7 @@ function CardPresenter({
 CardPresenter.propTypes = {
   DevEventTitle: PropTypes.string.isRequired,
   DevEventDate: PropTypes.string.isRequired,
-  DevEventType: PropTypes.string.isRequired,
+  DevEventType: PropTypes.arrayOf(PropTypes.string).isRequired,
   DevEventUrl: PropTypes.string.isRequired,
 };
 
