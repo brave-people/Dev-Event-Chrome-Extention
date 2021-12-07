@@ -21,5 +21,6 @@ module.exports = {
   rules: {
     'prefer-destructuring': 'off',
     'no-param-reassign': 0,
+    'import/no-import-module-exports': 0,
   },
 };

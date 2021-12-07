@@ -6,7 +6,7 @@
   ],
   "name": "Dev-Event-Extends",
   "options_page": "options.html",
-  "background": { "service_worker": "background.bundle.js","persistent": false },
+  "background": { "service_worker": "background.bundle.js"},
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon-34.png"
