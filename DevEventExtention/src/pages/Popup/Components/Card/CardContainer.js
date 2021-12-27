@@ -14,6 +14,7 @@ function CardContainer({keyIndex, DevEvent}) {
   });
   const [devFollow, setdevFollow] = useState(false);
   const {key, DevEventTitle, DevEventDate, DevEventUrl, DevEventType} = state;
+
   useEffect(() => {
     setstate({
       key: keyIndex,
@@ -24,19 +25,30 @@ function CardContainer({keyIndex, DevEvent}) {
       DevEventType: DevEvent.분류 || '없음',
     });
   }, []);
+
   const followBtnEvent = () => {
     if (devFollow === false) {
       setdevFollow(true);
-      chrome.notifications.create('', {
-        title: 'Just wanted to notify you',
-        message: 'How great it is!',
-        iconUrl:
-          'https://w.namu.la/s/40de86374ddd74756b31d4694a7434ee9398baa51fa5ae72d28f2eeeafdadf0c475c55c58e29a684920e0d6a42602b339f8aaf6d19764b04405a0f8bee7f598d2922db9475579419aac4635d0a71fdb8a4b2343cb550e6ed93e13c1a05cede75',
-        type: 'basic',
-      });
+      console.log(DevEventDate.indexOf('~'));
+      console.log(DevEventDate.slice(12));
+      // chrome.alarms.create('testAlarm', {
+      //   when: Date.now() + 100,
+      //   periodInMinutes: 5,
+      // });
+
+      // chrome.alarms.create('my-periodic-alarm', {
+      //   when,
+      //   periodInMinutes,
+      // });
+      // chrome.notifications.create('', {
+      //   title: DevEventTitle,
+      //   message: DevEventDate,
+      //   iconUrl:
+      //     'https://w.namu.la/s/40de86374ddd74756b31d4694a7434ee9398baa51fa5ae72d28f2eeeafdadf0c475c55c58e29a684920e0d6a42602b339f8aaf6d19764b04405a0f8bee7f598d2922db9475579419aac4635d0a71fdb8a4b2343cb550e6ed93e13c1a05cede75',
+      //   type: 'basic',
+      // });
     } else {
       setdevFollow(false);
-      chrome.alarms.create();
     }
   };
 

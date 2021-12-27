@@ -2,7 +2,7 @@
   "manifest_version": 3,
 
   "permissions": [
-    "notifications", "tabs", "activeTab", "background"
+    "notifications", "tabs", "activeTab", "background","alarms"
   ],
   "name": "Dev-Event-Extends",
   "options_page": "options.html",
